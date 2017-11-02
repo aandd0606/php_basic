@@ -11,6 +11,38 @@ $var="變數VAR的內容";
 function addText(){
     return "<h1>天呀!加入文字</h1>";
 }
+switch(@$_GET['math']){
+    case"add":
+        $answer=$_GET['x']+$_GET['y'];
+        break;
+    case"del":
+        $answer=$_GET['x']-$_GET['y'];
+
+        break;
+    case"plus":
+        $answer=$_GET['x']*$_GET['y'];
+
+        break;
+    case"def":
+        $answer=$_GET['x']/$_GET['y'];
+
+        break;
+
+}
+if(empty($answer)){
+    $answer="?";
+}
+if(empty($_GET['x'])){
+    $x="";
+}else{
+    $x=$_GET['x'];
+}
+if(empty($_GET['y'])){
+    $y="";
+}else{
+    $y=$_GET['y'];
+}
+
 ?>
 <!doctype html>
 <html lang="zh-tw">
@@ -24,8 +56,17 @@ function addText(){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
 <body>
-<h1><?php echo $var.addText(); ?></h1>
-<h2>aandd.2017</h2>
+<h1>計算機</h1>
+<form action="index.php" method="get">
+    <input type="number" name="x" value="<?php echo $x;?>">
+    加<input type="radio" name="math" value="add">
+    減<input type="radio" name="math" value="del">
+    乘<input type="radio" name="math" value="plus">
+    除<input type="radio" name="math" value="def">
+    <input type="number" name="y" value="<?php echo $y;?>">
+    =<?php echo $answer;?><br>
+    <input type="submit" value="送出計算">
+</form>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
