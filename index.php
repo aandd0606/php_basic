@@ -45,6 +45,8 @@ if (empty($_GET['y'])) {
     $y = $_GET['y'];
 }
 
+@$math=$_GET['math']?$_GET['math']:"";
+
 ?>
 <!doctype html>
 <html lang="zh-tw">
@@ -62,10 +64,10 @@ if (empty($_GET['y'])) {
 <h1>計算機</h1>
 <form action="index.php" method="get">
     <input type="number" name="x" value="<?php echo $x; ?>">
-    加<input type="radio" name="math" value="add">
-    減<input type="radio" name="math" value="del">
-    乘<input type="radio" name="math" value="plus">
-    除<input type="radio" name="math" value="def">
+    加<input type="radio" name="math" value="add" <?php if($math=='add') echo "checked";?>>
+    減<input type="radio" name="math" value="del" <?php if($math=='del') echo "checked";?>>
+    乘<input type="radio" name="math" value="plus" <?php if($math=='plus') echo "checked";?>>
+    除<input type="radio" name="math" value="def" <?php if($math=='def') echo "checked";?>>
     <input type="number" name="y" value="<?php echo $y; ?>">
     =<?php echo $answer; ?><br>
     <input type="submit" value="送出計算">
