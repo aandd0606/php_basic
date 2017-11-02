@@ -7,11 +7,15 @@
  */
 echo "測試123";
 $var="變數VAR的內容";
+
+function addText(){
+    return "<h1>天呀!加入文字</h1>";
+}
 ?>
 <!doctype html>
 <html lang="zh-tw">
 <head>
-    <title><?php echo $var; ?></title>
+    <title><?php echo $var.addText(); ?></title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,7 +24,7 @@ $var="變數VAR的內容";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
 <body>
-<h1><?php echo $var; ?></h1>
+<h1><?php echo $var.addText(); ?></h1>
 <h2>aandd.2017</h2>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
